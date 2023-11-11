@@ -69,3 +69,33 @@ a {
 }
 
 /* 회원가입 부분 */
+.infoinput {
+    padding: 40px;
+    text-align:center;
+    box-sizing: border-box;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:24px;
+}
+.infoinput > h3 {
+    padding: 20px;
+}
+
+.infoinput > input {
+    padding:10px 30px;
+}
+
+.mentoti {
+    padding-bottom:20px;
+}
+
+.infoinput > label {
+    font-size:18px;
+}
+
+.submit, .reset {
+    padding:10px 30px;
+    background-color:#6A24FE;
+    font-size:24px;
+    color:#fff;
+}

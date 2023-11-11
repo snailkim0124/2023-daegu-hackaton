@@ -21,9 +21,23 @@
         </nav>
     </header>
     <section>
-        <p>
-            회원가입 화면 입니다.
-        </p>
+        <form class = "infoinput">
+            <h3>이름</h3>
+            <input type="text" name="userName" placeholder="이름 입력">
+            <h3>아이디</h3>
+            <input type="text" name="userId" placeholder="아이디 입력">
+            <h3>비밀번호 입력</h3>
+            <input type="password" name="userPassword" placeholder="비밀번호 입력">
+            <h3>멘토/멘티</h3>
+            <div class="mentoti">
+                <input type="radio" name="userMento" placeholder="mento">
+                <label for="mento">멘토</label>
+                <input type="radio" name="userMenti" placeholder="menti">
+                <label for="menti">멘티</label>
+            </div>
+            
+            <p><input type="submit" value="제출" class="submit"> <input type="reset" value="초기화" class="reset"></p>
+        </form>        
     </section>
 </body>
 </html>
