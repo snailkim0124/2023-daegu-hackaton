@@ -13,7 +13,7 @@
             <div id="grid">
                 <ul>
                     <li><a href="home.html">홈화면</a></li>
-                    <li><a href="">게시판</a></li>
+                    <li><a href="board.html">게시판</a></li>
                     <li><a href="">우수멘토</a></li>
                     <li><a href="login.html">로그인/회원가입</a></li>
                 </ul>
@@ -30,13 +30,20 @@
             <input type="password" name="userPassword" placeholder="비밀번호 입력">
             <h3>멘토/멘티</h3>
             <div class="mentoti">
-                <input type="radio" name="userMento" placeholder="mento">
+                <input type="radio" name="userMen" placeholder="mento">
+                <script>
+                    
+                </script>
                 <label for="mento">멘토</label>
-                <input type="radio" name="userMenti" placeholder="menti">
+                <input type="radio" name="userMen" placeholder="menti">
                 <label for="menti">멘티</label>
             </div>
             
             <p><input type="submit" value="제출" class="submit"> <input type="reset" value="초기화" class="reset"></p>
+            <script>
+                var tmp_value = ('input:radio[name=userMento]').val();
+                console.log(tmp_value);
+            </script>
         </form>        
     </section>
 </body>
