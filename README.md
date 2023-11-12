@@ -20,5 +20,8 @@
 
 서버 : firebase, node.js, ejs를 이용해 회원가입을 하면 이메일과 비밀번호, 이름을 받아온다.
 
+https://github.com/snailkim0124/daegu-hackaton/tree/master (서버 리포지토리)
 
 <img src="img/pic.png">
+
+시연 영상 : 

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>army</h1>
+        <nav>
+            <div id="grid">
+                <ul>
+                    <li><a href="home.html">홈화면</a></li>
+                    <li><a href="board.html">게시판</a></li>
+                    <li><a href="pri_mento.html">우수멘토</a></li>
+                    <li><a href="login.html">로그인/회원가입</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="boarding">
+        <div class="board_list_wrap">
+            <table class="board_list">
+                <caption>게시판 목록</caption> <!--테이블 제목-->
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>작성일</th>
+                        <th>조회</th>
+                    </tr>
+                </thead>
+                <body>
+                    <% var i = 0 %>
+                    <% for (let a of row) {%>
+                    <tr>
+                        <td><%=i+1%></td>
+                        <td class = "tit">
+                            <a href= "#" ><%=a.toptop %> </a>
+                        </td>
+                        <td><%=a.name%></td>
+                        <td><%=a.date%></td>
+                        <td><%=a.count%></td>
+                    </tr>
+                    <% i = i+1 %>
+                    <%}%>
+                </body>
+                
+                <script type = "module">
+                    
+                    // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+                    // import { collection, query, where, getDocs, getFirestore } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+                    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+                    // import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+
+                    // const firebaseConfig = {
+                    //     apiKey: "AIzaSyBIHPO5v0boLTFy2eTgCa-LR-Uw6Ox_FRQ",
+                    //     authDomain: "solder-ca5a3.firebaseapp.com",
+                    //     projectId: "solder-ca5a3",
+                    //     storageBucket: "solder-ca5a3.appspot.com",
+                    //     messagingSenderId: "19765747133",
+                    //     appId: "1:19765747133:web:a1eda0bf74f4bb9c3a86d4",
+                    //     measurementId: "G-Q37TJ4BL3Y"
+                    // };
+                    // // Initialize Firebase
+                    // const app = initializeApp(firebaseConfig);
+                    // const analytics = getAnalytics(app);
+
+                    // var num = 1;
+                    
+                    
+                    // const db = getFirestore(app);
+                    // const q = collection(db, "mentor");
+
+                    // var t = "";
+                    // const querySnapshot = await getDocs(q);
+                    // querySnapshot.forEach((doc) => {
+                    // // doc.data() is never undefined for query doc snapshots
+                    //     console.log(doc.id, " => ", doc.data().email);
+                    //     t += "<tr>"
+                    //     t += ("<td>"+doc.id+"</td>");
+                    //     t += "<td class =" + "tit" + ">"
+                    //     t += "<a href=" + "#" + ">" + doc.data().email + "</a>"
+                    //     t += "</td>"
+                    //     t += "<td>" +doc.data().name+"</td>"
+                    //     t += "<td>" +"멘토 포인트"+"</td>"
+                    //     t +=  "<td>" + doc.data().mentopoints + "</td>"
+                    //     t += "</tr>"
+                    //     num++;
+                            
+                    // });
+                    // document.write(t);
+                    // num++;
+                    // console.log(t);
+                    // document.write(t);
+                </script>
+            </table>
+            <div class="writing">
+                <button type="button" class="w" onclick="location.href='writing.html'">글쓰기</button>
+            </div>
+            <div class="paging">
+                <a href="#" class="bt">첫 페이지</a>
+                <a href="#" class="bt">이전 페이지</a>
+                <a href="#" class="num on">1</a>
+                <a href="#" class="num">2</a>
+                <a href="#" class="num">3</a>
+                <a href="#" class="bt">다음 페이지</a>
+                <a href="#" class="bt">마지막 페이지</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

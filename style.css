@@ -1,6 +1,6 @@
 /* 공통 부분 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500;600&family=Roboto:wght@100;500;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100;500;600&family=Roboto:wght@100;500;900&display=swap');
 * {
     margin:0;
     padding:0;
@@ -318,4 +318,28 @@ header {
 .bt_wrap a.on {
     background: green;
     color: #fff;
+}
+
+/*홈화면 구성하기*/
+#home {
+    background-image: url(img/back.png);
+    background-size:cover;
+}
+
+.cover {
+    width: 100%;
+    height: 100vh;
+    display: table;
+
+}
+.cover-inner {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.box {
+    width: 400px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    color:white;
 }

@@ -1,10 +1,21 @@
 var admin = require("firebase-admin");
 var firestore = require("firebase-admin/firestore");
 const express = require('express')
+var path = require('path');
+const ejs = require("ejs");
+const bodyParser = require('body-parser');
 const port = 3000
 const app = express()
 
+
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 var serviceAccount = require("./solder-ca5a3-firebase-adminsdk-f43vc-56c0daffd4.json");
+const { database } = require("firebase-admin");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -25,11 +36,13 @@ function newuser() {
         firebase.auth().createUserWithEmailAndPassword(email, new_pw_2)
             .then(() => {
                 alert('회원가입이 완료되었습니다.')
+                
             })
             .catch(function (error) {
+                alert(error.code)
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                alert(error.code)
+                
             });
     }
 }
@@ -53,47 +66,76 @@ async function RegistorUser() {
     });
 }
 
+// app.get('/board.html', (req, res) => {
+
+// })
 app.get('/', (req, res) => {
-    var html = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>home</title>
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-        <header>
-            <h1>army</h1>
-            <nav>
-                <div id="grid">
-                    <ul>
-                        <li><a href="home.html">홈화면</a></li>
-                        <li><a href="">게시판</a></li>
-                        <li><a href="">우수멘토</a></li>
-                        <li><a href="login.html">로그인/회원가입</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <section>
-            <div id="login">
-                <h2>로그인</h2>
-                <form method="post" action="서버의url" id="login-form">
-                    <input type="text" name="userName" placeholder="Email">
-                    <input type="password" name="userPassword" placeholder="Password">
-                    <label for="remember-check">
-                        <input type="checkbox" id="remember-check">아이디 저장하기
-                    </label>
-                    <input type="submit" value="회원가입">
-                    <input type="submit" value="로그인">
-                    
-                </form>
-            </div>
-        </section>
-    </body>
-    </html>`
-    res.send(html)
+    res.sendfile("home.html");
+})
+
+app.get('/home2.html', (req, res) => {
+    res.sendfile("home2.html");
+})
+
+app.get('/login.html', (req, res) => {
+    res.sendfile("login.html");
+})
+app.get('/writing.html',(req,res) => {
+    res.sendfile("writing.html");
+})
+
+app.get('/writing.html/update', (req, res) => {
+
+})
+
+app.get('/pri_mento.html',(req,res) => {
+    res.sendfile("pri_mento.html");
+})
+
+app.get('/member.html', (req, res) => {
+    res.sendfile("member.html");
+})
+
+
+// function DBget() {
+//     var num = 1;
+//     db.collection('mentor').get().then( e => 
+//         {e.forEach( (doc) => { dataBox.push(doc.data()) } ) }
+//     )
+    
+    
+// }
+
+async function GET(){
+    const dataBox = [];
+    const querySnapShot = await db.collection('posts').get().then( querySnapShot => 
+        {querySnapShot.forEach( (doc) => { dataBox.push( doc.data())} ) }
+    )   
+    return dataBox;
+}
+
+app.get('/board.html', (req, res) => {
+    var num = 1;
+    
+    var box = GET();
+    box.then(function(result){
+        console.log(result);
+        if (box){
+            res.render("board", {
+                row : result
+            })
+        }
+    })
+
+    // if (box){
+    //     res.render("board", {
+    //         row : box
+    //     })
+    //     // for (let a of dataBox){
+    //     //     console.log(a.email);
+    //     // }
+    // }
+    //res.sendfile("views/board.ejs");
 })
 
 app.listen(port, ()=>{
