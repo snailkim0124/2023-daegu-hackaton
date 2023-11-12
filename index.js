@@ -1,5 +1,6 @@
 var admin = require("firebase-admin");
 var firestore = require("firebase-admin/firestore");
+var Getauth = require("firebase-admin/auth");
 const express = require('express')
 var path = require('path');
 const ejs = require("ejs");
@@ -14,16 +15,17 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
 var serviceAccount = require("./solder-ca5a3-firebase-adminsdk-f43vc-56c0daffd4.json");
-const { database } = require("firebase-admin");
+//const { database } = require("firebase-admin");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 
 const db = firestore.getFirestore();
-
-// Registermentor();
+const auth = Getauth.getAuth();
+// Registermentor();ㄴ
 // RegistorUser();
 
 function newuser() {
@@ -81,11 +83,12 @@ app.get('/login.html', (req, res) => {
     res.sendfile("login.html");
 })
 app.get('/writing.html',(req,res) => {
+    var user = 
     res.sendfile("writing.html");
 })
 
 app.get('/writing.html/update', (req, res) => {
-
+    
 })
 
 app.get('/pri_mento.html',(req,res) => {

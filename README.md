@@ -1,6 +1,6 @@
 # daegu-hackaton
 
-팀명 : knu_idle
+팀명 : knu_idle(웹 이름 : 군데군데)
 
 
 제출 타입 및 주제 : E타입 - 기술행정병이나 운전병 등(군대) 각종 분과에 합격한 후기 애플리케이션
@@ -23,5 +23,18 @@
 https://github.com/snailkim0124/daegu-hackaton/tree/master (서버 리포지토리)
 
 <img src="img/pic.png">
+
+실행 방법 : 
+
+먼저 위에 있는 파일들을 다운받고 하나의 폴더에 넣는다.
+
+<li>npm init</li> 한 다음 엔터로 계속 치고 프로젝트.json 파일을 만든다.
+<li>npm install firebase</li>
+<li>npm install firebase-admin</li>
+<li>npm install ejs</li>
+<li>npm install express</li>
+<li>npm install path</li>
+<li>npm install body-parser</li>
+모두 설치 후 index.js 파일 실행후 localhost:3000 로 들어가면 된다.
 
 시연 영상 : 
