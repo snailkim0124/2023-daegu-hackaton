@@ -15,6 +15,10 @@ a {
 
 }
 
+header {
+    background-image:url("img/nav.jpg");
+}
+
 #grid ul{
     font-size:20px;
     font-weight:2000;
@@ -43,6 +47,7 @@ a {
     padding-right:auto;
     text-align:center;
     background-color:yellowgreen;
+
 }
 
 /* 로그인 부분 */
@@ -58,7 +63,7 @@ a {
 
 .login-wrapper > h2{
     font-size: 24px;
-    color: #6A24FE;
+    color: green;
     margin-bottom: 20px;
 }
 #login-form > input, button{
@@ -76,7 +81,8 @@ a {
 #login-form > input[type="submit"], button{
     color: #fff;
     font-size: 16px;
-    background-color: #6A24FE;
+    background-color: green;
+    border:0;
     margin-top:20px;
 }
 
@@ -111,7 +117,8 @@ a {
 
 .submit, .reset {
     padding:10px 30px;
-    background-color:#6A24FE;
+    background-color:green;
+    border:0;
     font-size:24px;
     color:#fff;
 }
