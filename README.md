@@ -18,7 +18,7 @@
 <img src="img/pic2.png">
 
 
-서버 : firebase, javascript를 이용해 회원가입을 하면 이메일과 비밀번호, 이름을 받아온다.
+서버 : firebase, node.js, ejs를 이용해 회원가입을 하면 이메일과 비밀번호, 이름을 받아온다.
 
 
 <img src="img/pic.png">
