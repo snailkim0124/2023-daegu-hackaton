@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>army</h1>
+        <nav>
+            <div id="grid">
+                <ul>
+                    <li><a href="/">홈화면</a></li>
+                    <li><a href="board.html">게시판</a></li>
+                    <li><a href="pri_mento.html">우수멘토</a></li>
+                    <li><a href="login.html">로그인/회원가입</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="board_wrap">
+            <div class="board_title">
+                <strong>글쓰기</strong>
+                <p>궁금한 점을 물어보세요!</p>
+            </div>
+            <body>
+                <script type = "module">
+                    var sub = document.getElementById("sub");
+                    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+                    import { collection, addDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+                    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+                    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+                    sub.addEventListener('click',(event)=>{
+                        event.preventDefault();
+                        // Import the functions you need from the SDKs you need
+                        
+                        // TODO: Add SDKs for Firebase products that you want to use
+                        // https://firebase.google.com/docs/web/setup#available-libraries
+                  
+                        // Your web app's Firebase configuration
+                        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                        const firebaseConfig = {
+                            apiKey: "AIzaSyBIHPO5v0boLTFy2eTgCa-LR-Uw6Ox_FRQ",
+                            authDomain: "solder-ca5a3.firebaseapp.com",
+                            projectId: "solder-ca5a3",
+                            storageBucket: "solder-ca5a3.appspot.com",
+                            messagingSenderId: "19765747133",
+                            appId: "1:19765747133:web:a1eda0bf74f4bb9c3a86d4",
+                            measurementId: "G-Q37TJ4BL3Y"
+                        };
+                        // Initialize Firebase
+                        const app = initializeApp(firebaseConfig);
+                        const analytics = getAnalytics(app);
+    
+                        const text1 = document.getElementById("text-1");
+                        const toptop = document.getElementById("title");
+                        const top = document.getElementById("top");
+                        const pass = document.getElementById("pass");
+
+    
+    
+                        // Initialize Cloud Firestore and get a reference to the service
+                        const db = getFirestore(app);
+                        const auth = getAuth();
+    
+                        async function getMento(userID, Name, pass, text, date1, counts){
+                            const docRef = await addDoc(collection(db, "posts"), {
+                                toptop: userID,
+                                name: Name,
+                                password: pass,
+                                texts: text,
+                                date: date1,
+                                count: counts
+                            });
+                            console.log("Document written with ID: ", docRef.id);
+                        }
+                        let today = new Date();
+                        let year = today.getFullYear();
+                        let month = today.getMonth();
+                        let da = today.getDate();
+
+                        getMento(toptop.value, top.value, pass.value, text1.value, year + '/'+month + '/' + da, 0).then((result) => {
+                            alert("글을 성공적으로 업로드했습니다!");
+                            location.href='board.html';
+                        })
+
+    
+                        
+                        
+    
+                        
+                            
+                            
+    
+    
+                        
+                        // alert(Name.value);
+                        // alert(IDD.value);
+                        // alert(paw.value);
+                        // if (mento.checked){
+                        //     alert("멘토입니다.")
+                            
+                        // }else{
+                        //     alert("멘티입니다.")
+                        // }
+                    })
+                    
+    
+                </script>
+                <div class="board_write_wrap">
+                    <div class="board_write">
+                        <div class ="title">
+                            <dl>
+                                <dt>제목</dt>
+                                <dd><input type="text" id = "title" placeholder="제목 입력"></dd>
+                            </dl>
+                        </div>
+                        <div class ="info">
+                            <dl>
+                                <dt>글쓴이</dt>
+                                <dd><input type="text" id = "top" placeholder="글쓴이 입력"></dd>
+                            </dl>
+                            <dl>
+                                <dt>비밀번호</dt>
+                                <dd><input type="text" id = "pass" placeholder="제목 입력"></dd>
+                            </dl>
+                        </div>
+                        <div class ="cont">
+                            <textarea placeholder="내용 입력" id = "text-1"></textarea>
+                            
+                        </div>
+                    </div>
+                    <div class="bt_wrap">
+                        <a href="board.html" id = "sub" class="on">등록</a>
+                        <a href="board.html">취소</a>
+                    </div>
+                    
+            </body>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
