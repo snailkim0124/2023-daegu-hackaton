@@ -9,18 +9,21 @@
 프로젝트 한 줄 설명 : 입영 예정자의 입영 관련 지식을 해결하기 위해 로그인 기술과 댓글 기능을 이용하였음.
 
 
-프로젝트에 활용된 기술 : 프론트, 서버
+프로젝트에 활용된 기술 : 프론트, 서버, express 모듈
 
 
-프론트 : html, css, javascript 를 이용해서 게시판 기능과 글쓰는 기능을 구현하였다.
+프론트 : html,ejs, css, javascript 를 이용해서 홈화면과 로그인, 회원가입, 게시판 화면을 구현하였다.
 
 
 <img src="/public/img/pic2.png">
 
 
 서버 : firebase, node.js 를 이용해 회원가입을 하면 이메일과 비밀번호, 이름을 받아온다.
-      또한, index.js 에서 서버에서 받은 데이터를 ejs 에서 변수로 사용한다.
+      또한, index.js 에서 서버에서 받은 데이터를 board.ejs 에서 변수로 사용한다.
 
+express 모듈: express를 통해 각각의 로그인, 회원가입 게시판등의 주소로 접속이 가능하고 ejs와 함께 사용하여 
+      동적 게시판 구현에 중요한 역할을 담당했다.
+      
 https://github.com/snailkim0124/daegu-hackaton/tree/master (서버 리포지토리)
 
 <img src="/public/img/pic.png">
