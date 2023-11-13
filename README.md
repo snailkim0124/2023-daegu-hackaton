@@ -12,13 +12,14 @@
 프로젝트에 활용된 기술 : 프론트, 서버
 
 
-프론트 : html, css, javascript를 이용해서 게시판 기능과 글쓰는 기능을 구현하였다.
+프론트 : html, css, javascript 를 이용해서 게시판 기능과 글쓰는 기능을 구현하였다.
 
 
 <img src="/public/img/pic2.png">
 
 
-서버 : firebase, node.js, ejs를 이용해 회원가입을 하면 이메일과 비밀번호, 이름을 받아온다.
+서버 : firebase, node.js 를 이용해 회원가입을 하면 이메일과 비밀번호, 이름을 받아온다.
+      또한, index.js 에서 서버에서 받은 데이터를 ejs 에서 변수로 사용한다.
 
 https://github.com/snailkim0124/daegu-hackaton/tree/master (서버 리포지토리)
 
