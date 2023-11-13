@@ -41,4 +41,4 @@ https://github.com/snailkim0124/daegu-hackaton/tree/master (서버 리포지토�
 <li>npm install body-parser</li>
 모두 설치 후 index.js 파일 실행후 localhost:3000 로 들어가면 된다.
 
-시연 영상 : 
+시연 영상 : https://www.youtube.com/watch?v=nqH9kRjMIwU
